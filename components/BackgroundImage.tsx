@@ -3,7 +3,8 @@ import styles from '../styles/Background.module.css';
 
 const BackgroundImage = () => {
   return (
-    <Image className={styles.background} src="https://external-preview.redd.it/e5zoQw-hgw-LCjdhC_4G8IAcHxex5pzda_BD_FPTcBY.png?auto=webp&s=c0b96b5ec20010a15864b8a0c9b202c119e52fe8" alt="pokemon silluoette" width={100} height={100} />
+    // to decrease pixelation in remote images, increase the height and width properties
+    <Image className={styles.background} src="https://i0.wp.com/www.alphr.com/wp-content/uploads/2016/07/whos_that_pokemon.png?fit=1920%2C1080&ssl=1" alt="pokemon silluoette" width={800} height={800} />
   );
 }
 
