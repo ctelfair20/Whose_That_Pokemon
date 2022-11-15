@@ -8,9 +8,9 @@ export default function Home() {
         <title>Who&apos;s That Pokemon?!</title>
       </Head>
 
-      <body>
+      <main>
         <Silluoette />
-      </body>
+      </main>
     </div>
   )
 }
