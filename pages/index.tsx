@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Silluoette from '../components/SilluoetteImage'
+import BackgroundImage from '../components/BackgroundImage'
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <Silluoette />
+        <BackgroundImage />
       </main>
     </div>
   )
