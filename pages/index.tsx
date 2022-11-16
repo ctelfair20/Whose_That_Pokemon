@@ -21,7 +21,6 @@ export type Sprite = {
 }
 
 export default function Home({ pokemon }: Props) {
-  console.log('poke', pokemon);
 
   return (
     <div>
