@@ -1,7 +1,8 @@
+import styles from '../styles/PokeImage.module.css';
 
 const PokeImage = () => {
   return (
-    <div>image goes here</div>
+    <div className={styles.image}>image goes here</div>
   );
 }
 
