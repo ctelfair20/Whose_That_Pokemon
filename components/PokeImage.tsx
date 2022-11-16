@@ -9,8 +9,8 @@ const PokeImage = ({ pokemon }: Props) => {
       <Image
         src={pokemon.sprites.other['official-artwork']['front_default']}
         alt='hidden pokemon'
-        width={200}
-        height={200}
+        width={400}
+        height={400}
       />
     </div>
   );
