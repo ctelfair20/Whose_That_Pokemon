@@ -11,6 +11,11 @@ const nextConfig = {
         hostname: 'i0.wp.com',
         pathname: '/www.alphr.com/wp-content/uploads/2016/07/whos_that_pokemon.png**'
       },
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+        pathname: '/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/**'
+      },
     ],
   },
 }
