@@ -1,38 +1,11 @@
-import axios from 'axios';
 import styles from '../styles/PokeImage.module.css';
+import { Props } from '../pages/index'
 
-type Pokemon = {
-  id: number,
-  name: string,
-  sprites: SpriteI,
-}
-
-type SpriteI = {
-  other: {
-    'offical-artwork': {
-      front_default: string
-    }
-  }
-}
-const PokeImage = () => {
+const PokeImage = ({ pokemon }: Props) => {
+  console.log(pokemon);
   return (
     <div className={styles.image}>image goes here</div>
   );
-}
-
-export async function getStaticProps() {
-  // Call an external API endpoint to get a pokemon.
-  // You can use any data fetching library
-  const res = await axios('https://pokeapi.co/api/v2/pokemon/ditto')
-  const pokemon = await res.json();
-
-  // By returning { props: { pokemon } }, the Blog component
-  // will receive `pokemon` as a prop at build time
-  return {
-    props: {
-      pokemon,
-    },
-  }
 }
 
 export default PokeImage;
