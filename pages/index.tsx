@@ -3,7 +3,7 @@ import Head from 'next/head'
 import BackgroundImage from '../components/BackgroundImage'
 
 export type Props = {
-  pokemon: Pokemon
+  pokemonArray: Pokemon[]
 }
 
 export type Pokemon = {
@@ -20,7 +20,8 @@ export type Sprite = {
   }
 }
 
-export default function Home({ pokemon }: Props) {
+export default function Home({ pokemonArray }: Props) {
+  // console.log(pokemonArray);
 
   return (
     <div>
@@ -28,21 +29,25 @@ export default function Home({ pokemon }: Props) {
         <title>Who&apos;s That Pokemon?!</title>
       </Head>
       <main>
-        <BackgroundImage pokemon={pokemon} />
+        <BackgroundImage pokemonArray={pokemonArray} />
       </main>
     </div>
   )
 }
 
 export const getStaticProps = async () => {
+  const pokemonArray: Pokemon[] = [];
   // Call an external API endpoint to get a pokemon.
-  const res = await axios.get<Pokemon>('https://pokeapi.co/api/v2/pokemon/6');
-  const pokemon = res.data;
+  const pokemon1 = await axios.get<Pokemon>('https://pokeapi.co/api/v2/pokemon/3');
+  const pokemon2 = await axios.get<Pokemon>('https://pokeapi.co/api/v2/pokemon/6');
+  const pokemon3 = await axios.get<Pokemon>('https://pokeapi.co/api/v2/pokemon/9');
+  const pokemon4 = await axios.get<Pokemon>('https://pokeapi.co/api/v2/pokemon/ditto');
+  pokemonArray.push(pokemon1.data, pokemon2.data, pokemon3.data, pokemon4.data);
 
   // By returning { props: { pokemon } }, the PokemonImage component will receive `pokemon` as a prop at build time
   return {
     props: {
-      pokemon,
+      pokemonArray,
     },
   }
 }
