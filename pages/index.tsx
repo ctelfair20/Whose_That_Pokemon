@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import axios from 'axios'
 import Head from 'next/head'
 import BackgroundImage from '../components/BackgroundImage'
@@ -21,15 +22,14 @@ export type Sprite = {
 }
 
 export default function Home({ pokemonArray }: Props) {
-  // console.log(pokemonArray);
-
+  const [pokemonArr, setPokemonArr] = useState(pokemonArray);
   return (
     <div>
       <Head>
         <title>Who&apos;s That Pokemon?!</title>
       </Head>
       <main>
-        <BackgroundImage pokemonArray={pokemonArray} />
+        <BackgroundImage pokemonArray={pokemonArr} />
       </main>
     </div>
   )

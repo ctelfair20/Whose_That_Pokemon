@@ -7,7 +7,8 @@ const PokeImage = ({ pokemonArray }: Props) => {
   return (
     <div className={styles.image}>
       <Image
-        src={pokemonArray[0].sprites.other['official-artwork']['front_default']}
+        // ditto's image breaks!
+        src={pokemonArray[2].sprites.other['official-artwork']['front_default']}
         alt='hidden pokemon'
         width={400}
         height={400}
