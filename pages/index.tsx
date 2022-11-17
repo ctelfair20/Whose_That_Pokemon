@@ -37,28 +37,35 @@ const randomNumber = (gen: number) => {
   // gen 7 = 722 - 809
   // gen 8 = 810 - 905
   // all gens = 1 - 905
-  // I think a switch case would be good here
-  // Math.random() * (max - min) + min;
   let num;
   switch (gen) {
     case 1:
       num = Math.round(Math.random() * (152 - 1) + 1);
+      break;
     case 2:
       num = Math.round(Math.random() * (252 - 152) + 152);
+      break;
     case 3:
       num = Math.round(Math.random() * (387 - 252) + 252);
+      break;
     case 4:
       num = Math.round(Math.random() * (494 - 387) + 387);
+      break;
     case 5:
       num = Math.round(Math.random() * (650 - 494) + 494);
+      break;
     case 6:
       num = Math.round(Math.random() * (722 - 650) + 650);
+      break;
     case 7:
       num = Math.round(Math.random() * (810 - 722) + 722);
+      break;
     case 8:
       num = Math.round(Math.random() * (905 - 810) + 810);
-    case 8:
+      break;
+    case 9:
       num = Math.round(Math.random() * (905 - 1) + 1);
+      break;
   }
   return num;
 }
@@ -79,12 +86,14 @@ export default function Home({ pokemonArray }: Props) {
 
 export const getStaticProps = async () => {
   const pokemonArray: Pokemon[] = [];
+  const randomId = randomNumber(1);
+  console.log('num', randomId);
+
   // Call an external API endpoint to get a pokemon.
-  const pokemon1 = await axios.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${randomNumber(1)}`);
-  const pokemon2 = await axios.get<Pokemon>('https://pokeapi.co/api/v2/pokemon/6');
-  const pokemon3 = await axios.get<Pokemon>('https://pokeapi.co/api/v2/pokemon/9');
-  const pokemon4 = await axios.get<Pokemon>('https://pokeapi.co/api/v2/pokemon/ditto');
-  pokemonArray.push(pokemon1.data, pokemon2.data, pokemon3.data, pokemon4.data);
+  for (let i = 0; i < 4; i++) {
+    const pokemon1 = await axios.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
+    pokemonArray.push(pokemon1.data);
+  }
 
   // By returning { props: { pokemon } }, the PokemonImage component will receive `pokemon` as a prop at build time
   return {
