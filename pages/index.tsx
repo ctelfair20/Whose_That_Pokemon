@@ -87,12 +87,11 @@ export default function Home({ pokemonArray }: Props) {
 export const getStaticProps = async () => {
   const pokemonArray: Pokemon[] = [];
   const randomId = randomNumber(1);
-  console.log('num', randomId);
 
   // Call an external API endpoint to get a pokemon.
   for (let i = 0; i < 4; i++) {
-    const pokemon1 = await axios.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
-    pokemonArray.push(pokemon1.data);
+    const pokemon = await axios.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
+    pokemonArray.push(pokemon.data);
   }
 
   // By returning { props: { pokemon } }, the PokemonImage component will receive `pokemon` as a prop at build time

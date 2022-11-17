@@ -3,11 +3,9 @@ import { Props } from '../pages/index'
 import styles from '../styles/PokeImage.module.css'
 
 const PokeImage = ({ pokemonArray }: Props) => {
-  // console.log('poke', pokemonArray[1]);
   return (
     <div className={styles.image}>
       <Image
-        // ditto's image breaks!
         src={pokemonArray[0].sprites.other['official-artwork']['front_default']}
         alt='hidden pokemon'
         width={400}
