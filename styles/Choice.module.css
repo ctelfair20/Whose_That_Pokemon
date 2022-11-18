@@ -1,7 +1,9 @@
-.choice-box {
+.choices-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 5px rgb(22, 224, 93) solid;
-  color: aqua;
-  width: 27vw;
+  max-width: 40vw;
   height: 15vh;
 }
 
