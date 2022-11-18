@@ -1,7 +1,7 @@
 import Image from "next/image";
 import PokeImage from "./PokeImage";
 import { Props } from "../pages/index";
-import Choice from "./choice";
+import Choice from "./Choice";
 import styles from '../styles/Background.module.css';
 
 const BackgroundImage = ({ pokemonArray }: Props) => {
