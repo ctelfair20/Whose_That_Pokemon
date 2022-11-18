@@ -86,11 +86,10 @@ export default function Home({ pokemonArray }: Props) {
 
 export const getStaticProps = async () => {
   const pokemonArray: Pokemon[] = [];
-  const randomId = randomNumber(1);
 
   // Call an external API endpoint to get a pokemon.
   for (let i = 0; i < 4; i++) {
-    const pokemon = await axios.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
+    const pokemon = await axios.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${randomNumber(1)}`);
     pokemonArray.push(pokemon.data);
   }
 
