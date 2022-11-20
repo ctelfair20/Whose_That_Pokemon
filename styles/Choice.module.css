@@ -1,10 +1,12 @@
 .choices-box {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 5px rgb(22, 224, 93) solid;
-  max-width: 40vw;
+  min-width: 45vw;
   height: 15vh;
+  bottom: 0px;
 }
 
 .choice {
