@@ -6,9 +6,10 @@
   border: 7px rgb(0, 0, 0) double;
   border-radius: 10px;
   background: rgb(222, 221, 221);
+  box-shadow: -10px 7px 3px rgb(118, 142, 142);
   min-width: 40vw;
   height: 15vh;
-  margin-left: 15px;
+  margin-left: 25px;
   bottom: 45px;
 }
 
