@@ -3,10 +3,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 5px rgb(22, 224, 93) solid;
-  min-width: 43vw;
+  border: 7px rgb(0, 0, 0) double;
+  border-radius: 10px;
+  background: rgb(222, 221, 221);
+  min-width: 40vw;
   height: 15vh;
-  bottom: 0px;
+  margin-left: 15px;
+  bottom: 45px;
 }
 
 .choice {
@@ -14,14 +17,15 @@
   justify-content: center;
   align-items: center;
   margin: 10px;
-  border: 5px red solid;
-  color: aqua;
-  width: 13vw;
+  border: 3px rgb(0, 0, 0) solid;
+  border-radius: 10px;
+  width: 15vw;
   height: 5vh;
 }
 
 .choice:hover {
-  border: 5px rgb(25, 92, 207) solid;
+  border: 3px rgb(25, 92, 207) solid;
+  color: white;
 }
 
 .correct {
