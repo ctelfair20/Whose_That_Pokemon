@@ -26,16 +26,29 @@
 
 .choice:hover {
   border: 3px rgb(25, 92, 207) solid;
-  color: white;
+  font-size: large;
 }
 
 .correct {
-  border: 5px rgb(22, 224, 93) solid;
+  border: 3px rgb(22, 224, 93) solid;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 10px;
   color: rgb(28, 30, 30);
-  width: 13vw;
+  font-size: x-large;
+  width: 15vw;
+  height: 5vh;
+}
+
+.wrong {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  border: 3px rgb(255, 2, 2) solid;
+  border-radius: 10px;
+  width: 15vw;
   height: 5vh;
 }
