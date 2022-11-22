@@ -12,17 +12,13 @@ const Choice = ({ pokemon, pokemonArray }: Props) => {
   const [isCorrect, setIsCorrect] = useState('not selected');
 
   const handleClick = () => {
-    // when clicked, toggle border color
-    // check if selected pokemon is correct
-    // if selected pokemon is equal to the first pokemon in pokemonArray
+    // when clicked, toggle border color if selected pokemon is correct
     if (pokemon.name === pokemonArray[0].name) {
       // render a green border
-      // change isCorrect to true
       setIsCorrect('correct');
-      // else
+      // I want to auto populate a new pokemon after 3 seconds
     } else {
       // render a red border
-      // change isCorrect to false
       setIsCorrect('wrong');
     }
   }
