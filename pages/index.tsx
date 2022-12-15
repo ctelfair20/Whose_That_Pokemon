@@ -78,7 +78,7 @@ export default function Home({ pokemonArray }: Props) {
         <title>Who&apos;s That Pokemon?! </title>
       </Head>
       <main>
-        <BackgroundImage pokemonArray={pokemonArr} />
+        <BackgroundImage pokemonArray={pokemonArr} setPokemonArr={setPokemonArr} />
       </main>
     </div>
   )
