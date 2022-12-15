@@ -7,7 +7,7 @@ import styles from '../styles/Background.module.css';
 export interface BackgroundProps {
   pokemonArray: Pokemon[]
   setPokemonArr: (mixedArray: Pokemon[]) => void
-}
+};
 
 const BackgroundImage = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
   // console.log('pokeB', pokemonArray);
