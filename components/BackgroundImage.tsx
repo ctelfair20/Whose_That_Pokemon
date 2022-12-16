@@ -5,7 +5,7 @@ import ChoiceBox from "./ChoiceBox";
 import styles from '../styles/Background.module.css';
 
 const BackgroundImage = ({ pokemonArray }: Props) => {
-  // console.log('pokeB', pokemonArray);
+  // console.log('pokeB', pokemonArray );
   return (
     // to decrease pixelation in remote images,  increase the height and width propertie
     <>
