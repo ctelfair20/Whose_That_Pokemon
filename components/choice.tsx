@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Pokemon } from '../pages/index'
 import styles from '../styles/Choice.module.css'
 
@@ -14,9 +14,22 @@ type Status = {
   right: number,
 }
 
-const Choice = ({ pokemon, pokemonArray }: Props) => {
+const Choice = ({ pokemon, pokemonArray, status, setStatus }: Props) => {
   const CapsName = pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
   const [isCorrect, setIsCorrect] = useState('not selected');
+
+  useEffect(() => {
+    if (status.wrong === 3) {
+      console.log('I got three wrong!')
+      //   show pokemon
+      //   fetch 4 more pokemon after 2-3 seconds
+    }
+    if (status.right === 1) {
+      console.log('I got it right!')
+      //   show pokemon
+      //   fetch 4 more pokemon after 2-3 seconds
+    }
+  }, [status])
 
   const handleClick = () => {
     // when clicked, toggle border color if selected pokemon is correct
