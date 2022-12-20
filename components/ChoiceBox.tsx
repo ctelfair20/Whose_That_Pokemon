@@ -11,9 +11,7 @@ const ChoiceBox = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
   let mixedArray;
 
   const randomizeChoices = () => {
-    console.log('in mix func', pokemonArray);
     // takes in an array of pokemon - [{A}, {B}, {C}, {D}]
-    // console.log(pokemonArray);
     // creates an array that holds the possible indices - [0,1,2,3]
     const indicesArray: number[] = [0, 1, 2, 3];
     // create an empty obj - {0: null,...}
@@ -44,7 +42,6 @@ const ChoiceBox = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
   mixedArray = randomizeChoices();
 
   const allChoices = (start: number, mixedArray: Pokemon[], end = 4) => {
-    console.log('mixed', mixedArray)
     // need to randomize choices so that the answer isn't in the same spot every time.
     // maybe this should be do in a use effect?
     return mixedArray.map((pokemon, i) => {
