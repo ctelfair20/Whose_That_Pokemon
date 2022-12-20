@@ -50,7 +50,7 @@ const ChoiceBox = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
     return mixedArray.map((pokemon, i) => {
 
       if (i >= start && i < end) {
-        return <Choice key={pokemon.id} pokemonArray={pokemonArray} pokemon={pokemon} />
+        return <Choice key={pokemon.id} pokemonArray={pokemonArray} pokemon={pokemon} status={status} setStatus={setStatus} />
       }
     });
   }

@@ -5,6 +5,13 @@ import styles from '../styles/Choice.module.css'
 type Props = {
   pokemon: Pokemon
   pokemonArray: Pokemon[]
+  status: Status,
+  setStatus: (previStat: Status) => void
+}
+
+type Status = {
+  wrong: number,
+  right: number,
 }
 
 const Choice = ({ pokemon, pokemonArray }: Props) => {
