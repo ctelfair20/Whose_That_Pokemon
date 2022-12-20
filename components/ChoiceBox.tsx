@@ -2,13 +2,16 @@ import { Pokemon } from '../pages/index'
 import stlyes from '../styles/Choice.module.css'
 import Choice from './choice'
 import { BackgroundProps } from './BackgroundImage'
+import { useState } from 'react'
 
 interface SlotsI {
   [slot: number]: null | Pokemon
 }
 
 const ChoiceBox = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
+
   let mixedArray;
+  const [status, setStatus] = useState({ wrong: 0, right: 0 })
 
   const randomizeChoices = () => {
     // takes in an array of pokemon - [{A}, {B}, {C}, {D}]
