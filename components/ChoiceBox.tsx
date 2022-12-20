@@ -1,22 +1,23 @@
-import { Props, Pokemon } from '../pages/index'
+import { Pokemon } from '../pages/index'
 import stlyes from '../styles/Choice.module.css'
-import Choice from './Choice'
+import Choice from './choice'
+import { BackgroundProps } from './BackgroundImage'
 
-const ChoiceBox = ({ pokemonArray }: Props) => {
+interface SlotsI {
+  [slot: number]: null | Pokemon
+}
 
-  interface SlotsI {
-    [slot: number]: null | Pokemon
-  }
+const ChoiceBox = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
+  let mixedArray;
 
   const randomizeChoices = () => {
     // takes in an array of pokemon - [{A}, {B}, {C}, {D}]
-    // console.log(pokemonArray);
     // creates an array that holds the possible indices - [0,1,2,3]
     const indicesArray: number[] = [0, 1, 2, 3];
     // create an empty obj - {0: null,...}
     const slots: SlotsI = { 0: null, 1: null, 2: null, 3: null };
     // create empty array to repopulate with chioces in diff order
-    let mixed = [];
+    let mixed: Pokemon[] = [];
     // while index array still has elements inside
     while (indicesArray.length) {
 
@@ -38,11 +39,13 @@ const ChoiceBox = ({ pokemonArray }: Props) => {
     return mixed;
   }
 
-  const allChoices = (start: number, end = 4) => {
-    // need to randomize choices so that the answer isn't in the same spot every time.
-    const mixedArray = randomizeChoices()
+  mixedArray = randomizeChoices();
 
-    return pokemonArray.map((pokemon, i) => {
+  const allChoices = (start: number, mixedArray: Pokemon[], end = 4) => {
+    // need to randomize choices so that the answer isn't in the same spot every time.
+    // maybe this should be do in a use effect?
+    return mixedArray.map((pokemon, i) => {
+
       if (i >= start && i < end) {
         return <Choice key={pokemon.id} pokemonArray={pokemonArray} pokemon={pokemon} />
       }
@@ -52,10 +55,10 @@ const ChoiceBox = ({ pokemonArray }: Props) => {
   return (
     <div className={stlyes['choices-box']}>
       <div>
-        {allChoices(0, 2)}
+        {allChoices(0, mixedArray, 2)}
       </div>
       <div>
-        {allChoices(2)}
+        {allChoices(2, mixedArray)}
       </div>
     </div>
   );
