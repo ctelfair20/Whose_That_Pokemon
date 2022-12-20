@@ -10,7 +10,7 @@ export interface BackgroundProps {
 };
 
 const BackgroundImage = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
-  // console.log('pokeB', pokemonArray);
+
   return (
     // to decrease pixelation in remote images,  increase the height and width propertie
     <>
