@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Head from 'next/head'
 import BackgroundImage from '../components/BackgroundImage'
@@ -20,6 +20,7 @@ export type Sprite = {
     }
   }
 }
+
 /**
  * randomNumber generates a number based on the generation of pokemon
  * returns a number within that generation's range
@@ -70,33 +71,56 @@ const randomNumber = (gen: number) => {
   return num;
 }
 
-export default function Home({ pokemonArray }: Props) {
-  const [pokemonArr, setPokemonArr] = useState(pokemonArray);
+export default function Home() {
+  const [pokemonArr, setPokemonArr] = useState<Pokemon[]>([]);
+
+  useEffect(() => {
+    fetchFourPokemon();
+  }, []);
+
+  const fetchFourPokemon = async () => {
+    const pokemonArray: Pokemon[] = [];
+    console.log('func running??');
+
+    // Call an external API endpoint to get a pokemon.
+    for (let i = 0; i < 4; i++) {
+      const pokemon = await axios.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${randomNumber(1)}`);
+      console.log('Pokemon', pokemon.data)
+      pokemonArray.push(pokemon.data);
+    }
+    // set state with pokemonArray
+    setPokemonArr(pokemonArray)
+  }
+
   return (
     <div>
       <Head>
         <title>Who&apos;s That Pokemon?! </title>
       </Head>
       <main>
-        <BackgroundImage pokemonArray={pokemonArr} setPokemonArr={setPokemonArr} />
+        {/* Blocker to prevent component from loading before pokemon data was fetched */}
+        {pokemonArr.length > 0 &&
+          <BackgroundImage pokemonArray={pokemonArr} setPokemonArr={setPokemonArr} />
+        }
       </main>
     </div>
   )
 }
 
-export const getStaticProps = async () => {
-  const pokemonArray: Pokemon[] = [];
+// ** I believe using this function was the source of my hydration issues**
+// export const getStaticProps = async () => {
+//   const pokemonArray: Pokemon[] = [];
 
-  // Call an external API endpoint to get a pokemon.
-  for (let i = 0; i < 4; i++) {
-    const pokemon = await axios.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${randomNumber(1)}`);
-    pokemonArray.push(pokemon.data);
-  }
+//   // Call an external API endpoint to get a pokemon.
+//   for (let i = 0; i < 4; i++) {
+//     const pokemon = await axios.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${randomNumber(1)}`);
+//     pokemonArray.push(pokemon.data);
+//   }
 
-  // By returning { props: { pokemon } }, the PokemonImage component will receive `pokemon` as a prop at build time
-  return {
-    props: {
-      pokemonArray,
-    },
-  }
-}
+//   // By returning { props: { pokemon } }, the PokemonImage component will receive `pokemon` as a prop at build time
+//   return {
+//     props: {
+//       pokemonArray,
+//     },
+//   }
+// }
