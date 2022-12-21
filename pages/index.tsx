@@ -80,12 +80,10 @@ export default function Home() {
 
   const fetchFourPokemon = async () => {
     const pokemonArray: Pokemon[] = [];
-    console.log('func running??');
 
     // Call an external API endpoint to get a pokemon.
     for (let i = 0; i < 4; i++) {
       const pokemon = await axios.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${randomNumber(1)}`);
-      console.log('Pokemon', pokemon.data)
       pokemonArray.push(pokemon.data);
     }
     // set state with pokemonArray
