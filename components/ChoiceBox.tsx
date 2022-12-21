@@ -1,6 +1,6 @@
 import { Pokemon } from '../pages/index'
 import stlyes from '../styles/Choice.module.css'
-import Choice from './choice'
+import Choice from './Choice'
 import { BackgroundProps } from './BackgroundImage'
 
 interface SlotsI {
