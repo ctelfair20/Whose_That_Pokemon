@@ -16,7 +16,14 @@ const ChoiceBox = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
 
   let mixedArray;
   const [status, setStatus] = useState({ wrong: 0, right: 0 })
-  const [isCorrect, setIsCorrect] = useState<isCorrectI>({});
+  const [isCorrect, setIsCorrect] = useState<isCorrectI>(
+    {
+      1: "not selected",
+      2: "not selected",
+      3: "not selected",
+      4: "not selected"
+    }
+  );
 
   useEffect(() => {
     console.log('useE ran');
@@ -70,7 +77,7 @@ const ChoiceBox = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
     return mixedArray.map((pokemon, i) => {
 
       if (i >= start && i < end) {
-        return <Choice key={pokemon.id} pokemonArray={pokemonArray} pokemon={pokemon} status={status} setStatus={setStatus} />
+        return <Choice key={pokemon.id} id={i + 1} pokemonArray={pokemonArray} pokemon={pokemon} status={status} setStatus={setStatus} />
       }
     });
   }

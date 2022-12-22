@@ -3,6 +3,7 @@ import { Pokemon } from '../pages/index'
 import styles from '../styles/Choice.module.css'
 
 type Props = {
+  id: number
   pokemon: Pokemon
   pokemonArray: Pokemon[]
   status: Status,
@@ -14,7 +15,7 @@ type Status = {
   right: number,
 }
 
-const Choice = ({ pokemon, pokemonArray, status, setStatus }: Props) => {
+const Choice = ({ id, pokemon, pokemonArray, status, setStatus }: Props) => {
   const CapsName = pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
   const [isCorrect, setIsCorrect] = useState('not selected');
 
