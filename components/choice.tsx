@@ -18,28 +18,24 @@ const Choice = ({ pokemon, pokemonArray, status, setStatus }: Props) => {
   const CapsName = pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
   const [isCorrect, setIsCorrect] = useState('not selected');
 
-  useEffect(() => {
-    if (status.wrong === 3) {
-      console.log('I got three wrong!')
-      //   show pokemon
-      //   fetch 4 more pokemon after 2-3 seconds
-    }
-    if (status.right === 1) {
-      console.log('I got it right!')
-      //   show pokemon
-      //   fetch 4 more pokemon after 2-3 seconds
-    }
-  }, [status])
 
   const handleClick = () => {
     // when clicked, toggle border color if selected pokemon is correct
     if (pokemon.name === pokemonArray[0].name) {
       // render a green border
       setIsCorrect('correct');
+      // set status to right:1
+      const newStatus = status;
+      newStatus.right = 1;
+      setStatus({ ...newStatus });
       // I want to auto populate a new pokemon after 3 seconds
     } else {
       // render a red border
       setIsCorrect('wrong');
+      // set status to wrong + 1
+      const newStatus: Status = status;
+      newStatus.wrong += 1;
+      setStatus({ ...newStatus });
     }
   }
 

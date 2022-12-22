@@ -2,16 +2,36 @@ import { Pokemon } from '../pages/index'
 import stlyes from '../styles/Choice.module.css'
 import Choice from './Choice'
 import { BackgroundProps } from './BackgroundImage'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface SlotsI {
   [slot: number]: null | Pokemon
+}
+
+type isCorrectI = {
+  [id: number]: string
 }
 
 const ChoiceBox = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
 
   let mixedArray;
   const [status, setStatus] = useState({ wrong: 0, right: 0 })
+  const [isCorrect, setIsCorrect] = useState<isCorrectI>({});
+
+  useEffect(() => {
+    console.log('useE ran');
+
+    if (status.wrong === 3) {
+      console.log('I got three wrong!')
+      //   show pokemon
+      //   fetch 4 more pokemon after 2-3 seconds
+    }
+    if (status.right === 1) {
+      console.log('I got it right!')
+      //   show pokemon
+      //   fetch 4 more pokemon after 2-3 seconds
+    }
+  }, [status])
 
   const randomizeChoices = () => {
     // takes in an array of pokemon - [{A}, {B}, {C}, {D}]
