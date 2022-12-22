@@ -18,16 +18,19 @@ type Status = {
   right: number,
 }
 
-const Choice = ({ id, pokemon, pokemonArray, status, setStatus }: Props) => {
+const Choice = ({ id, pokemon, pokemonArray, status, setStatus, isCorrect, setIsCorrect }: Props) => {
   const CapsName = pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
-  const [isCorrect, setIsCorrect] = useState('not selected');
-
 
   const handleClick = () => {
     // when clicked, toggle border color if selected pokemon is correct
     if (pokemon.name === pokemonArray[0].name) {
       // render a green border
-      setIsCorrect('correct');
+      // create new obj that looks like isCorrect
+      const newCorrect: isCorrectI = isCorrect;
+      // change value of new obj at id to be 'correct'
+      newCorrect[id] = "correct"
+      // set isCorrect to new obj
+      setIsCorrect({ ...newCorrect });
       // set status to right:1
       const newStatus = status;
       newStatus.right = 1;
@@ -35,7 +38,12 @@ const Choice = ({ id, pokemon, pokemonArray, status, setStatus }: Props) => {
       // I want to auto populate a new pokemon after 3 seconds
     } else {
       // render a red border
-      setIsCorrect('wrong');
+      // create new obj that looks like isCorrect
+      const newCorrect: isCorrectI = isCorrect;
+      // change value of new obj at id to be 'correct'
+      newCorrect[id] = "wrong"
+      // set isCorrect to new obj
+      setIsCorrect({ ...newCorrect });
       // set status to wrong + 1
       const newStatus: Status = status;
       newStatus.wrong += 1;
@@ -44,9 +52,9 @@ const Choice = ({ id, pokemon, pokemonArray, status, setStatus }: Props) => {
   }
 
   const choiceStyle = () => {
-    if (isCorrect === 'not selected') {
+    if (isCorrect[id] === 'not selected') {
       return <div className={styles.choice} onClick={handleClick}> {CapsName} </div>
-    } else if (isCorrect === 'correct') {
+    } else if (isCorrect[id] === 'correct') {
       return <div className={styles.correct} onClick={handleClick}> {CapsName} </div>
     } else {
       return <div className={styles.wrong} onClick={handleClick}> {CapsName} </div>
