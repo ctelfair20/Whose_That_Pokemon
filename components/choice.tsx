@@ -55,9 +55,9 @@ const Choice = ({ id, pokemon, pokemonArray, status, setStatus, isCorrect, setIs
     if (isCorrect[id] === 'not selected') {
       return <div className={styles.choice} onClick={handleClick}> {CapsName} </div>
     } else if (isCorrect[id] === 'correct') {
-      return <div className={styles.correct} onClick={handleClick}> {CapsName} </div>
+      return <div className={styles.correct}> {CapsName} </div>
     } else {
-      return <div className={styles.wrong} onClick={handleClick}> {CapsName} </div>
+      return <div className={styles.wrong}> {CapsName} </div>
     }
   }
 
