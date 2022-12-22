@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Pokemon } from '../pages/index'
+import { isCorrectI } from './ChoiceBox'
 import styles from '../styles/Choice.module.css'
 
 type Props = {
@@ -8,6 +9,8 @@ type Props = {
   pokemonArray: Pokemon[]
   status: Status,
   setStatus: (previStat: Status) => void
+  isCorrect: isCorrectI
+  setIsCorrect: (update: isCorrectI) => void
 }
 
 type Status = {

@@ -8,7 +8,7 @@ interface SlotsI {
   [slot: number]: null | Pokemon
 }
 
-type isCorrectI = {
+export type isCorrectI = {
   [id: number]: string
 }
 
@@ -77,7 +77,7 @@ const ChoiceBox = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
     return mixedArray.map((pokemon, i) => {
 
       if (i >= start && i < end) {
-        return <Choice key={pokemon.id} id={i + 1} pokemonArray={pokemonArray} pokemon={pokemon} status={status} setStatus={setStatus} />
+        return <Choice key={pokemon.id} id={i + 1} pokemonArray={pokemonArray} pokemon={pokemon} status={status} setStatus={setStatus} isCorrect={isCorrect} setIsCorrect={setIsCorrect} />
       }
     });
   }
