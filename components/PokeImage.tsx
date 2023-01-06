@@ -1,3 +1,4 @@
+import React from 'react'
 import Image from 'next/image'
 import { Props } from '../pages/index'
 import styles from '../styles/PokeImage.module.css'

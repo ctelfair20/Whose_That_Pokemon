@@ -1,3 +1,4 @@
+import React from 'react'
 import { Pokemon } from '../pages/index'
 import stlyes from '../styles/Choice.module.css'
 import Choice from './Choice'
@@ -14,7 +15,7 @@ export type isCorrectI = {
 
 const ChoiceBox = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
 
-  let mixedArray;
+  const [mixedArray, setMixedArray] = useState<Pokemon[]>([])
   const [status, setStatus] = useState({ wrong: 0, right: 0 })
   const [isCorrect, setIsCorrect] = useState<isCorrectI>(
     {
@@ -40,7 +41,14 @@ const ChoiceBox = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
     }
   }, [status])
 
+  useEffect(() => {
+    const mixed = randomizeChoices();
+    setMixedArray(mixed);
+  }, [])
+
+  console.log('cBox arr: ', pokemonArray)
   const randomizeChoices = () => {
+    console.log('rand func', pokemonArray)
     // takes in an array of pokemon - [{A}, {B}, {C}, {D}]
     // creates an array that holds the possible indices - [0,1,2,3]
     const indicesArray: number[] = [0, 1, 2, 3];
@@ -66,10 +74,9 @@ const ChoiceBox = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
       }
     }
     // return the empty array of mixed pokemon - [{B}, {D}, {A}, {C}]
+    console.log('rand func2', mixed)
     return mixed;
   }
-
-  mixedArray = randomizeChoices();
 
   const allChoices = (start: number, mixedArray: Pokemon[], end = 4) => {
     // need to randomize choices so that the answer isn't in the same spot every time.
@@ -83,14 +90,19 @@ const ChoiceBox = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
   }
 
   return (
-    <div className={stlyes['choices-box']}>
-      <div>
-        {allChoices(0, mixedArray, 2)}
-      </div>
-      <div>
-        {allChoices(2, mixedArray)}
-      </div>
-    </div>
+    <>
+      {
+        mixedArray.length > 0 &&
+        <div className={stlyes['choices-box']}>
+          <div>
+            {allChoices(0, mixedArray, 2)}
+          </div>
+          <div>
+            {allChoices(2, mixedArray)}
+          </div>
+        </div>
+      }
+    </>
   );
 }
 

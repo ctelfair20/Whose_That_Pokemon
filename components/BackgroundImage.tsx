@@ -1,8 +1,9 @@
+import React from "react";
 import Image from "next/image";
 import PokeImage from "./PokeImage";
 import { Pokemon } from "../pages/index";
 import ChoiceBox from "./ChoiceBox";
-import styles from '../styles/Background.module.css';
+import styles from "../styles/Background.module.css";
 
 export interface BackgroundProps {
   pokemonArray: Pokemon[]
@@ -10,7 +11,7 @@ export interface BackgroundProps {
 };
 
 const BackgroundImage = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
-  // console.log('arr: ', pokemonArray)
+  console.log('Back arr: ', pokemonArray)
 
   return (
     // to decrease pixelation in remote images, increase the height and width properties
