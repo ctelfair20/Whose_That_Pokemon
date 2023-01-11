@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Pokemon } from '../pages/index'
 import { isCorrectI } from './ChoiceBox'
 import styles from '../styles/Choice.module.css'
