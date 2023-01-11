@@ -1,6 +1,6 @@
 .image {
   /* this line creates a sillouette of the pokemon image */
-  filter: contrast(0%) brightness(50%);
+  filter: contrast(0%) brightness(0%);
   position: absolute;
   top: 20vh;
   left: 10vw;
