@@ -11,7 +11,8 @@ export interface BackgroundProps {
 };
 
 const BackgroundImage = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
-  console.log('Back arr: ', pokemonArray)
+
+  const [shouldBeVisible, setShouldBeVisible] = useState(false);
 
   return (
     // to decrease pixelation in remote images, increase the height and width properties
@@ -24,3 +25,7 @@ const BackgroundImage = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
 }
 
 export default BackgroundImage;
+
+function useState(arg0: boolean): [any, any] {
+  throw new Error("Function not implemented.");
+}
