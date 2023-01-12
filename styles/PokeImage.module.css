@@ -2,12 +2,12 @@
   /* this line creates a sillouette of the pokemon image */
   filter: contrast(0%) brightness(0%);
   position: absolute;
-  top: 20vh;
+  top: 15vh;
   left: 10vw;
 }
 
 .original {
   position: absolute;
-  top: 20vh;
+  top: 15vh;
   left: 10vw;
 }
