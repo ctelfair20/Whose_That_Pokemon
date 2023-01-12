@@ -73,16 +73,9 @@ const randomNumber = (gen: number) => {
 
 export default function Home() {
   const [pokemonArr, setPokemonArr] = useState<Pokemon[]>([]);
-  // const [test, setTest] = useState(0)
 
   useEffect(() => {
-    console.log('fetched pokemon...how many times??')
-    // console.log('test', test)
-    // if (test === 1) {
     fetchFourPokemon();
-    // }
-    // setTest(test + 1)
-    // console.log('test2', test)
   }, []);
 
   const fetchFourPokemon = async () => {
@@ -94,8 +87,6 @@ export default function Home() {
       pokemonArray.push(pokemon.data);
     }
     // set state with pokemonArray
-    console.log('fetched: ', pokemonArray);
-
     setPokemonArr(pokemonArray)
   }
 

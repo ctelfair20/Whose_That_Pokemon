@@ -1,8 +1,8 @@
 import React from 'react'
+import { useEffect, useState } from 'react'
+import Choice from './Choice'
 import { Pokemon } from '../pages/index'
 import stlyes from '../styles/Choice.module.css'
-import Choice from './Choice'
-import { useEffect, useState } from 'react'
 
 interface SlotsI {
   [slot: number]: null | Pokemon
@@ -32,19 +32,15 @@ const ChoiceBox = ({ pokemonArray, setPokemonArr, setShouldBeVisible }: Props) =
   );
 
   useEffect(() => {
-    console.log('useE ran');
-
     if (status.wrong === 3) {
-      console.log('I got three wrong!')
-      //   show pokemon
+      // show pokemon
       setShouldBeVisible(true);
-      //   fetch 4 more pokemon after 2-3 seconds
+      // fetch 4 more pokemon after 2-3 seconds
     }
     if (status.right === 1) {
-      console.log('I got it right!')
-      //   show pokemon
+      // show pokemon
       setShouldBeVisible(true);
-      //   fetch 4 more pokemon after 2-3 seconds
+      // fetch 4 more pokemon after 2-3 seconds
     }
   }, [status])
 
@@ -53,9 +49,7 @@ const ChoiceBox = ({ pokemonArray, setPokemonArr, setShouldBeVisible }: Props) =
     setMixedArray(mixed);
   }, [])
 
-  console.log('cBox arr: ', pokemonArray)
   const randomizeChoices = () => {
-    console.log('rand func', pokemonArray)
     // takes in an array of pokemon - [{A}, {B}, {C}, {D}]
     // creates an array that holds the possible indices - [0,1,2,3]
     const indicesArray: number[] = [0, 1, 2, 3];
@@ -81,7 +75,6 @@ const ChoiceBox = ({ pokemonArray, setPokemonArr, setShouldBeVisible }: Props) =
       }
     }
     // return the empty array of mixed pokemon - [{B}, {D}, {A}, {C}]
-    console.log('rand func2', mixed)
     return mixed;
   }
 
@@ -89,7 +82,6 @@ const ChoiceBox = ({ pokemonArray, setPokemonArr, setShouldBeVisible }: Props) =
     // need to randomize choices so that the answer isn't in the same spot every time.
     // maybe this should be do in a use effect?
     return mixedArray.map((pokemon, i) => {
-
       if (i >= start && i < end) {
         return <Choice key={pokemon.id} id={i + 1} pokemonArray={pokemonArray} pokemon={pokemon} status={status} setStatus={setStatus} isCorrect={isCorrect} setIsCorrect={setIsCorrect} />
       }
