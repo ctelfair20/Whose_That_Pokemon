@@ -20,18 +20,8 @@ type Status = {
   right: number,
 }
 
-const Choice = ({ id, pokemon, pokemonArray, status, setStatus, isCorrect, setIsCorrect, test, setTest }: Props) => {
+const Choice = ({ id, pokemon, pokemonArray, status, setStatus, isCorrect, setIsCorrect, test }: Props) => {
   const CapsName = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
-  // const [test, setTest] = useState(false);
-
-  useEffect(() => {
-    console.log('was choice comps re rendered?');
-    console.log('test is F')
-    if (test) {
-      console.log('test is TRUE');
-    }
-  }, [test])
-
 
   const handleClick = () => {
     // when clicked, toggle border color if selected pokemon is correct
@@ -44,8 +34,6 @@ const Choice = ({ id, pokemon, pokemonArray, status, setStatus, isCorrect, setIs
       newCorrect[id] = "correct"
       // set isCorrect to new obj
       setIsCorrect({ ...newCorrect });
-      // test to true
-      setTest(true);
       // set status to right:1
       const newStatus = status;
       newStatus.right = 1;

@@ -44,6 +44,7 @@ const ChoiceBox = ({ pokemonArray, setPokemonArr, setShouldBeVisible }: Props) =
       // show pokemon
       setShouldBeVisible(true);
       // set gameOver to be true
+      setTest(true);
       // fetch 4 more pokemon after 2-3 seconds
     }
   }, [status])
