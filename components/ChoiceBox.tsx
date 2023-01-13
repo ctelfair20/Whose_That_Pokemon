@@ -86,7 +86,7 @@ const ChoiceBox = ({ pokemonArray, setPokemonArr, setShouldBeVisible }: Props) =
     // maybe this should be do in a use effect?
     return mixedArray.map((pokemon, i) => {
       if (i >= start && i < end) {
-        return <Choice key={pokemon.id + i} id={i + 1} pokemonArray={pokemonArray} pokemon={pokemon} status={status} setStatus={setStatus} isCorrect={isCorrect} setIsCorrect={setIsCorrect} test={test} setTest={setTest} />
+        return <Choice key={pokemon.id + i + 1} id={i + 1} pokemonArray={pokemonArray} pokemon={pokemon} status={status} setStatus={setStatus} isCorrect={isCorrect} setIsCorrect={setIsCorrect} test={test} setTest={setTest} />
       }
     });
   }

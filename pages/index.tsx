@@ -73,6 +73,7 @@ const randomNumber = (gen: number) => {
 
 export default function Home() {
   const [pokemonArr, setPokemonArr] = useState<Pokemon[]>([]);
+  // create gameOver state; initialize to false
 
   useEffect(() => {
     fetchFourPokemon();
