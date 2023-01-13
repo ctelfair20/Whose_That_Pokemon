@@ -22,6 +22,7 @@ const ChoiceBox = ({ pokemonArray, setPokemonArr, setShouldBeVisible }: Props) =
 
   const [mixedArray, setMixedArray] = useState<Pokemon[]>([])
   const [status, setStatus] = useState({ wrong: 0, right: 0 })
+  const [test, setTest] = useState(false);
   const [isCorrect, setIsCorrect] = useState<isCorrectI>(
     {
       1: "not selected",
@@ -35,11 +36,13 @@ const ChoiceBox = ({ pokemonArray, setPokemonArr, setShouldBeVisible }: Props) =
     if (status.wrong === 3) {
       // show pokemon
       setShouldBeVisible(true);
+      // set gameOver to be true
       // fetch 4 more pokemon after 2-3 seconds
     }
     if (status.right === 1) {
       // show pokemon
       setShouldBeVisible(true);
+      // set gameOver to be true
       // fetch 4 more pokemon after 2-3 seconds
     }
   }, [status])
@@ -83,7 +86,7 @@ const ChoiceBox = ({ pokemonArray, setPokemonArr, setShouldBeVisible }: Props) =
     // maybe this should be do in a use effect?
     return mixedArray.map((pokemon, i) => {
       if (i >= start && i < end) {
-        return <Choice key={pokemon.id} id={i + 1} pokemonArray={pokemonArray} pokemon={pokemon} status={status} setStatus={setStatus} isCorrect={isCorrect} setIsCorrect={setIsCorrect} />
+        return <Choice key={pokemon.id + i} id={i + 1} pokemonArray={pokemonArray} pokemon={pokemon} status={status} setStatus={setStatus} isCorrect={isCorrect} setIsCorrect={setIsCorrect} test={test} setTest={setTest} />
       }
     });
   }
