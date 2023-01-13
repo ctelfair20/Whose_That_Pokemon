@@ -41,31 +41,31 @@ const randomNumber = (gen: number) => {
   let num;
   switch (gen) {
     case 1:
-      num = Math.round(Math.random() * (152 - 1) + 1);
+      num = Math.floor(Math.random() * (151 - 1 + 1)) + 1;
       break;
     case 2:
-      num = Math.round(Math.random() * (252 - 152) + 152);
+      num = Math.floor(Math.random() * (251 - 152 + 1)) + 152;
       break;
     case 3:
-      num = Math.round(Math.random() * (387 - 252) + 252);
+      num = Math.floor(Math.random() * (386 - 252 + 1)) + 252;
       break;
     case 4:
-      num = Math.round(Math.random() * (494 - 387) + 387);
+      num = Math.floor(Math.random() * (493 - 387 + 1) + 387);
       break;
     case 5:
-      num = Math.round(Math.random() * (650 - 494) + 494);
+      num = Math.floor(Math.random() * (649 - 494 + 1)) + 494;
       break;
     case 6:
-      num = Math.round(Math.random() * (722 - 650) + 650);
+      num = Math.floor(Math.random() * (721 - 650 + 1)) + 650;
       break;
     case 7:
-      num = Math.round(Math.random() * (810 - 722) + 722);
+      num = Math.floor(Math.random() * (809 - 722 + 1)) + 722;
       break;
     case 8:
-      num = Math.round(Math.random() * (905 - 810) + 810);
+      num = Math.floor(Math.random() * (905 - 810 + 1)) + 810;
       break;
     case 9:
-      num = Math.round(Math.random() * (905 - 1) + 1);
+      num = Math.floor(Math.random() * (905 - 1 + 1)) + 1;
       break;
   }
   return num;
