@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import Head from 'next/head'
-import { randomNumber, fetchFourPokemon } from '../helperFunctions'
+import { fetchFourPokemon } from '../helperFunctions'
 import BackgroundImage from '../components/BackgroundImage'
 
 export type Props = {
