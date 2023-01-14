@@ -7,10 +7,9 @@ import styles from "../styles/Background.module.css";
 
 export interface BackgroundProps {
   pokemonArray: Pokemon[]
-  setPokemonArr: (mixedArray: Pokemon[]) => void
 };
 
-const BackgroundImage = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
+const BackgroundImage = ({ pokemonArray }: BackgroundProps) => {
 
   const [shouldBeVisible, setShouldBeVisible] = useState(false);
 
@@ -19,7 +18,7 @@ const BackgroundImage = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
     <>
       <Image className={styles.background} src="https://i0.wp.com/www.alphr.com/wp-content/uploads/2016/07/whos_that_pokemon.png?fit=1920%2C1080&ssl=1" alt="pokemon silluoette" width={800} height={800} priority />
       <PokeImage pokemonArray={pokemonArray} shouldBeVisible={shouldBeVisible} />
-      <ChoiceBox pokemonArray={pokemonArray} setPokemonArr={setPokemonArr} setShouldBeVisible={setShouldBeVisible} />
+      <ChoiceBox pokemonArray={pokemonArray} setShouldBeVisible={setShouldBeVisible} />
     </>
   );
 }

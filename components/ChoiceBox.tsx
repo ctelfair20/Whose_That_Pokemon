@@ -10,7 +10,6 @@ interface SlotsI {
 
 interface Props {
   pokemonArray: Pokemon[]
-  setPokemonArr: (mixedArray: Pokemon[]) => void
   setShouldBeVisible: (show: boolean) => void
 };
 
@@ -18,7 +17,7 @@ export type isCorrectI = {
   [id: number]: string
 }
 
-const ChoiceBox = ({ pokemonArray, setPokemonArr, setShouldBeVisible }: Props) => {
+const ChoiceBox = ({ pokemonArray, setShouldBeVisible }: Props) => {
 
   const [mixedArray, setMixedArray] = useState<Pokemon[]>([])
   const [status, setStatus] = useState({ wrong: 0, right: 0 })
