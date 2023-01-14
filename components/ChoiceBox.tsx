@@ -32,18 +32,11 @@ const ChoiceBox = ({ pokemonArray, setShouldBeVisible }: Props) => {
   );
 
   useEffect(() => {
-    if (status.wrong === 3) {
+    if (status.wrong === 3 || status.right === 1) {
       // show pokemon
       setShouldBeVisible(true);
       // set gameOver to be true
       setGameOver(true)
-      // fetch 4 more pokemon after 2-3 seconds
-    }
-    if (status.right === 1) {
-      // show pokemon
-      setShouldBeVisible(true);
-      // set gameOver to be true
-      setGameOver(true);
       // fetch 4 more pokemon after 2-3 seconds
     }
   }, [status])

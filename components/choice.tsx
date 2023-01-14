@@ -53,22 +53,22 @@ const Choice = ({ id, pokemon, pokemonArray, status, setStatus, isCorrect, setIs
   }
 
   const choiceStyle = () => {
-    console.log('start');
+    // console.log('start');
 
     if (isCorrect[id] === 'correct' && gameOver === true) {
-      console.log('here?', pokemon.id);
+      // console.log('here?', pokemon.id);
       return <div className={styles.correct}> {CapsName} </div>
     } else if (isCorrect[id] === 'wrong' && gameOver === true) {
-      console.log('here??', pokemon.id);
+      // console.log('here??', pokemon.id);
       return <div className={styles.wrong}> {CapsName} </div>
     } else if (isCorrect[id] === 'not selected' && gameOver === true) {
-      console.log('here', pokemon.id);
+      // console.log('here', pokemon.id);
       return <div className={styles.choice}> {CapsName} </div>
     } else if (isCorrect[id] === 'not selected') {
-      console.log('there', pokemon.id);
+      // console.log('there', pokemon.id);
       return <div className={styles.choice} onClick={handleClick}> {CapsName} </div>
     } else if (isCorrect[id] === 'wrong') {
-      console.log('there??', pokemon.id);
+      // console.log('there??', pokemon.id);
       return <div className={styles.wrong}> {CapsName} </div>
     }
   }
