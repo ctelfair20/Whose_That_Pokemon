@@ -1,0 +1,13 @@
+.timer-box {
+  position: absolute;
+  left: 30px;
+  top: 20px;
+  border: 2px rgb(0, 0, 0) solid;
+  border-radius: 10px;
+  background-color: rgb(222, 221, 221);
+  color: rgb(46, 46, 208);
+}
+
+.timer-text {
+  margin: 5px;
+}
