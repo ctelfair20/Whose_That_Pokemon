@@ -11,8 +11,7 @@ type Props = {
   setStatus: (previStat: Status) => void
   isCorrect: isCorrectI
   setIsCorrect: (update: isCorrectI) => void
-  test: boolean
-  setTest: (test: boolean) => void
+  gameOver: boolean
 }
 
 type Status = {
@@ -20,7 +19,7 @@ type Status = {
   right: number,
 }
 
-const Choice = ({ id, pokemon, pokemonArray, status, setStatus, isCorrect, setIsCorrect, test }: Props) => {
+const Choice = ({ id, pokemon, pokemonArray, status, setStatus, isCorrect, setIsCorrect, gameOver }: Props) => {
   const CapsName = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
 
   const handleClick = () => {
@@ -58,13 +57,13 @@ const Choice = ({ id, pokemon, pokemonArray, status, setStatus, isCorrect, setIs
   const choiceStyle = () => {
     console.log('start');
 
-    if (isCorrect[id] === 'correct' && test === true) {
+    if (isCorrect[id] === 'correct' && gameOver === true) {
       console.log('here?', pokemon.id);
       return <div className={styles.correct}> {CapsName} </div>
-    } else if (isCorrect[id] === 'wrong' && test === true) {
+    } else if (isCorrect[id] === 'wrong' && gameOver === true) {
       console.log('here??', pokemon.id);
       return <div className={styles.wrong}> {CapsName} </div>
-    } else if (isCorrect[id] === 'not selected' && test === true) {
+    } else if (isCorrect[id] === 'not selected' && gameOver === true) {
       console.log('here', pokemon.id);
       return <div className={styles.choice}> {CapsName} </div>
     } else if (isCorrect[id] === 'not selected') {
