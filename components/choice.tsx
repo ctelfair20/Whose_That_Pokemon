@@ -25,33 +25,31 @@ const Choice = ({ id, pokemon, pokemonArray, status, setStatus, isCorrect, setIs
   const handleClick = () => {
     // when clicked, toggle border color if selected pokemon is correct
     if (pokemon.name === pokemonArray[0].name) {
-      console.log('clicked right');
       // render a green border
-      // create new obj that looks like isCorrect
-      const newCorrect: isCorrectI = isCorrect;
-      // change value of new obj at id to be 'correct'
-      newCorrect[id] = "correct"
-      // set isCorrect to new obj
-      setIsCorrect({ ...newCorrect });
+      updateCorrect('correct')
       // set status to right:1
-      const newStatus = status;
-      newStatus.right = 1;
-      setStatus({ ...newStatus });
+      updateStatus('right')
       // I want to auto populate a new pokemon after 3 seconds
     } else {
-      console.log('cliccked wrong?');
       // render a red border
-      // create new obj that looks like isCorrect
-      const newCorrect: isCorrectI = isCorrect;
-      // change value of new obj at id to be 'correct'
-      newCorrect[id] = "wrong"
-      // set isCorrect to new obj
-      setIsCorrect({ ...newCorrect });
+      updateCorrect('wrong')
       // set status to wrong + 1
-      const newStatus: Status = status;
-      newStatus.wrong += 1;
-      setStatus({ ...newStatus });
+      updateStatus('wrong')
     }
+  }
+
+  const updateCorrect = (grade: 'correct' | 'wrong') => {
+    const newCorrect: isCorrectI = isCorrect;
+    // change value of new obj at id to be 'correct'
+    newCorrect[id] = grade;
+    // set isCorrect to new obj
+    setIsCorrect({ ...newCorrect });
+  }
+
+  const updateStatus = (grade: 'right' | 'wrong') => {
+    const newStatus: Status = status;
+    newStatus[grade] += 1;
+    setStatus({ ...newStatus });
   }
 
   const choiceStyle = () => {
