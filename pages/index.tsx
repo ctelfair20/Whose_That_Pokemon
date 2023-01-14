@@ -99,7 +99,7 @@ export default function Home() {
       <main>
         {/* Blocker to prevent component from loading before pokemon data was fetched */}
         {pokemonArr.length > 0 &&
-          <BackgroundImage pokemonArray={pokemonArr} setPokemonArr={setPokemonArr} />
+          <BackgroundImage pokemonArray={pokemonArr} />
         }
       </main>
     </div>
