@@ -40,9 +40,7 @@ const Choice = ({ id, pokemon, pokemonArray, status, setStatus, isCorrect, setIs
 
   const updateCorrect = (grade: 'correct' | 'wrong') => {
     const newCorrect: isCorrectI = isCorrect;
-    // change value of new obj at id to be 'correct'
     newCorrect[id] = grade;
-    // set isCorrect to new obj
     setIsCorrect({ ...newCorrect });
   }
 
