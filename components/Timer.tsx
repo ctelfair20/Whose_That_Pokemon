@@ -1,13 +1,22 @@
 import React from 'react';
 import styles from '../styles/Timer.module.css';
 
-const Timer = () => {
+interface Props {
+  gameOver: boolean
+}
+
+const Timer = ({ gameOver }: Props) => {
   return (
-    <div className={styles['timer-box']}>
-      <div className={styles['timer-text']}>
-        You Won! Next Pokemon in...
-      </div>
-    </div>
+    <>
+      {
+        gameOver &&
+        <div className={styles['timer-box']}>
+          <div className={styles['timer-text']}>
+            You Won! Next Pokemon in...
+          </div>
+        </div>
+      }
+    </>
   );
 }
 
