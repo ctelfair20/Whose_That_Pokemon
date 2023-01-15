@@ -38,8 +38,10 @@ const Timer = ({ gameOver, setPokemonArray }: Props) => {
       {
         gameOver &&
         <div className={styles['timer-box']}>
-          <div className={styles['timer-text']}>
-            {`You Won! Next Pokemon in...${timeUntilNextGame()}`}
+          <div className={styles['timer']}>
+            <div className={styles['timer-text']}>
+              {`You Won! Next Pokemon in...${timeUntilNextGame()}`}
+            </div>
           </div>
         </div>
       }
