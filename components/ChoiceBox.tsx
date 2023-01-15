@@ -29,7 +29,7 @@ const ChoiceBox = ({ pokemonArray, setShouldBeVisible, gameOver, setGameOver, is
       // set gameOver to be true
       setGameOver(true)
       // set loser
-      setIsWinner("You Lose!")
+      setIsWinner("Try Again!")
     } else if (status.right === 1) {
       // show pokemon
       setShouldBeVisible(true);
