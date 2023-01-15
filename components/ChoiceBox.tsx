@@ -50,7 +50,7 @@ const ChoiceBox = ({ pokemonArray, setShouldBeVisible, gameOver, setGameOver, is
     // maybe this should be do in a use effect?
     return mixedArray.map((pokemon, i) => {
       if (i >= start && i < end) {
-        return <Choice key={pokemon.id + i + 1} id={i + 1} pokemonArray={pokemonArray} pokemon={pokemon} status={status} setStatus={setStatus} isCorrect={isCorrect} setIsCorrect={setIsCorrect} gameOver={gameOver} />
+        return <Choice key={i} id={i + 1} pokemonArray={pokemonArray} pokemon={pokemon} status={status} setStatus={setStatus} isCorrect={isCorrect} setIsCorrect={setIsCorrect} gameOver={gameOver} />
       }
     });
   }
