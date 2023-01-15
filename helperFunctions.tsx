@@ -94,6 +94,8 @@ export const fetchFourPokemon = async (setPokemonArr: (pokemonArr: Pokemon[]) =>
   }
   // set state with pokemonArray
   setPokemonArr(pokemonArray)
+  console.log(pokemonArray);
+
 }
 
 // ** I believe using this function was the source of my hydration issues. Was initially at the bottom of my index file not within the home component**

@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/Timer.module.css';
+import { Pokemon } from '../pages';
 import { fetchFourPokemon } from '../helperFunctions';
 
 interface Props {
   gameOver: boolean
-  // setPokemonArray: () => void
+  setPokemonArray: (pokemonArray: Pokemon[]) => void
 }
 
-const Timer = ({ gameOver }: Props) => {
+const Timer = ({ gameOver, setPokemonArray }: Props) => {
 
   const [countDown, setCountDown] = useState(3);
+
+  useEffect(() => {
+    if (countDown === 0) {
+      newGame()
+    }
+  }, [countDown])
+
+  const newGame = () => {
+    fetchFourPokemon(setPokemonArray);
+  }
 
   const timeUntilNextGame = () => {
     if (gameOver && countDown > 0) {
@@ -18,9 +29,9 @@ const Timer = ({ gameOver }: Props) => {
         setCountDown(countDown - 1);
       }, 1000);
     }
-    // const newPokemonArray = fetchFourPokemon(setPokemonArray);
     return countDown;
   }
+
 
   return (
     <>

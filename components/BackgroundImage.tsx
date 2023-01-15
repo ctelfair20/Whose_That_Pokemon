@@ -8,9 +8,10 @@ import Timer from "./Timer";
 
 export interface BackgroundProps {
   pokemonArray: Pokemon[]
+  setPokemonArr: (pokemonArray: Pokemon[]) => void
 };
 
-const BackgroundImage = ({ pokemonArray }: BackgroundProps) => {
+const BackgroundImage = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
 
   const [shouldBeVisible, setShouldBeVisible] = useState(false);
   const [gameOver, setGameOver] = useState(false);
@@ -18,7 +19,7 @@ const BackgroundImage = ({ pokemonArray }: BackgroundProps) => {
   return (
     // to decrease pixelation in remote images, increase the height and width properties
     <>
-      <Timer gameOver={gameOver} />
+      <Timer gameOver={gameOver} setPokemonArray={setPokemonArr} />
       <Image className={styles.background} src="https://i0.wp.com/www.alphr.com/wp-content/uploads/2016/07/whos_that_pokemon.png?fit=1920%2C1080&ssl=1" alt="pokemon silluoette" width={800} height={800} priority />
       <PokeImage pokemonArray={pokemonArray} shouldBeVisible={shouldBeVisible} />
       <ChoiceBox pokemonArray={pokemonArray} setShouldBeVisible={setShouldBeVisible} gameOver={gameOver} setGameOver={setGameOver} />
