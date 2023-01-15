@@ -66,6 +66,11 @@ const Choice = ({ id, pokemon, pokemonArray, status, setStatus, isCorrect, setIs
 
     } else if (isCorrect[id] === 'wrong') {
       return <div className={styles.wrong}> {CapsName} </div>
+
+    } else if (isCorrect[id] === 'correct') {
+      return <div className={styles.correct}> {CapsName} </div>
+    } else {
+      return <div className={styles.choice}> {CapsName} </div>
     }
   }
 
