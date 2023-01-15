@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import Choice from './Choice'
 import { Pokemon } from '../pages/index'
+import { isCorrectI, Status } from './BackgroundImage'
 import { randomizeChoices } from '../helperFunctions'
 import stlyes from '../styles/Choice.module.css'
 
@@ -9,25 +10,17 @@ interface Props {
   pokemonArray: Pokemon[]
   setShouldBeVisible: (show: boolean) => void
   gameOver: boolean
-  setGameOver: (gameOver: boolean) => void
+  setGameOver: (status: boolean) => void
+  isCorrect: isCorrectI
+  setIsCorrect: (update: isCorrectI) => void
+  status: Status
+  setStatus: (status: Status) => void
 };
 
-export type isCorrectI = {
-  [id: number]: string
-}
-
-const ChoiceBox = ({ pokemonArray, setShouldBeVisible, gameOver, setGameOver }: Props) => {
+const ChoiceBox = ({ pokemonArray, setShouldBeVisible, gameOver, setGameOver, isCorrect, setIsCorrect, status, setStatus }: Props) => {
 
   const [mixedArray, setMixedArray] = useState<Pokemon[]>([])
-  const [status, setStatus] = useState({ wrong: 0, right: 0 })
-  const [isCorrect, setIsCorrect] = useState<isCorrectI>(
-    {
-      1: "not selected",
-      2: "not selected",
-      3: "not selected",
-      4: "not selected"
-    }
-  );
+  // const [status, setStatus] = useState({ wrong: 0, right: 0 })
 
   useEffect(() => {
     if (status.wrong === 3 || status.right === 1) {

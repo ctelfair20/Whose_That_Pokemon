@@ -1,6 +1,6 @@
 import React from 'react'
 import { Pokemon } from '../pages/index'
-import { isCorrectI } from './ChoiceBox'
+import { isCorrectI } from './BackgroundImage'
 import styles from '../styles/Choice.module.css'
 
 type Props = {

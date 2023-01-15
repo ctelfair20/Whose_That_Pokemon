@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../styles/Timer.module.css';
 import { Pokemon } from '../pages';
+import { isCorrectI, Status } from './BackgroundImage';
 import { fetchFourPokemon, resetIsCorrect } from '../helperFunctions';
 
 interface Props {
   gameOver: boolean
+  setGameOver: (status: boolean) => void
   setPokemonArray: (pokemonArray: Pokemon[]) => void
+  setIsCorrect: (update: isCorrectI) => void
+  setShouldBeVisible: (isVisable: boolean) => void
+  setStatus: (status: Status) => void
 }
 
-const Timer = ({ gameOver, setPokemonArray }: Props) => {
+const Timer = ({ gameOver, setPokemonArray, setGameOver, setIsCorrect, setShouldBeVisible, setStatus }: Props) => {
 
   const [countDown, setCountDown] = useState(3);
 
@@ -24,7 +29,18 @@ const Timer = ({ gameOver, setPokemonArray }: Props) => {
     // reset gameOver
     setGameOver(false);
     // reset isCorrect
-    resetIsCorrect();
+    setIsCorrect({
+      1: "not selected",
+      2: "not selected",
+      3: "not selected",
+      4: "not selected"
+    });
+    // reset isVisable
+    setShouldBeVisible(false)
+    // reset status
+    setStatus({ wrong: 0, right: 0 })
+    // reset countDown
+    setCountDown(3)
   }
 
 
@@ -38,7 +54,6 @@ const Timer = ({ gameOver, setPokemonArray }: Props) => {
     }
     return countDown;
   }
-
 
   return (
     <>
