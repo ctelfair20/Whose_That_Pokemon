@@ -15,7 +15,7 @@ export type isCorrectI = {
   [id: number]: string
 };
 
-type Status = {
+export type Status = {
   wrong: number
   right: number
 };

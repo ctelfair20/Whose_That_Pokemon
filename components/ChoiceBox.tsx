@@ -20,7 +20,6 @@ interface Props {
 const ChoiceBox = ({ pokemonArray, setShouldBeVisible, gameOver, setGameOver, isCorrect, setIsCorrect, status, setStatus }: Props) => {
 
   const [mixedArray, setMixedArray] = useState<Pokemon[]>([])
-  // const [status, setStatus] = useState({ wrong: 0, right: 0 })
 
   useEffect(() => {
     if (status.wrong === 3 || status.right === 1) {

@@ -43,12 +43,9 @@ const Timer = ({ gameOver, setPokemonArray, setGameOver, setIsCorrect, setShould
     setCountDown(3)
   }
 
-
-
   const timeUntilNextGame = () => {
     if (gameOver && countDown > 0) {
       setTimeout(() => {
-        // console.log(countDown);
         setCountDown(countDown - 1);
       }, 1000);
     }
