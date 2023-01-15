@@ -42,7 +42,7 @@ const ChoiceBox = ({ pokemonArray, setShouldBeVisible, gameOver, setGameOver }: 
   useEffect(() => {
     const mixed = randomizeChoices(pokemonArray);
     setMixedArray(mixed);
-  }, [])
+  }, [pokemonArray])
 
   const allChoices = (start: number, mixedArray: Pokemon[], end = 4) => {
     // need to randomize choices so that the answer isn't in the same spot every time.
