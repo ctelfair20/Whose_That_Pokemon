@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Pokemon } from './pages/index';
-import { isCorrectI } from './components/ChoiceBox';
+import { isCorrectI } from './components/BackgroundImage';
 
 interface SlotsI {
   [slot: number]: null | Pokemon
