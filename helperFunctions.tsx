@@ -1,8 +1,19 @@
 import axios from "axios";
 import { Pokemon } from './pages/index';
+import { isCorrectI } from './components/ChoiceBox';
 
 interface SlotsI {
   [slot: number]: null | Pokemon
+}
+
+export const resetIsCorrect = (setIsCorrect: (isCorrect: isCorrectI) => void) => {
+  const clearCorrect: isCorrectI = {
+    1: "not selected",
+    2: "not selected",
+    3: "not selected",
+    4: "not selected"
+  };
+  setIsCorrect(clearCorrect);
 }
 
 export const randomizeChoices = (pokemonArray: Pokemon[]) => {
