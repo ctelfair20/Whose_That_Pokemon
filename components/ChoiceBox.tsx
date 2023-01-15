@@ -15,19 +15,28 @@ interface Props {
   setIsCorrect: (update: isCorrectI) => void
   status: Status
   setStatus: (status: Status) => void
+  setIsWinner: (isWinner: string) => void
 };
 
-const ChoiceBox = ({ pokemonArray, setShouldBeVisible, gameOver, setGameOver, isCorrect, setIsCorrect, status, setStatus }: Props) => {
+const ChoiceBox = ({ pokemonArray, setShouldBeVisible, gameOver, setGameOver, isCorrect, setIsCorrect, status, setStatus, setIsWinner }: Props) => {
 
   const [mixedArray, setMixedArray] = useState<Pokemon[]>([])
 
   useEffect(() => {
-    if (status.wrong === 3 || status.right === 1) {
+    if (status.wrong === 3) {
       // show pokemon
       setShouldBeVisible(true);
       // set gameOver to be true
       setGameOver(true)
-      // fetch 4 more pokemon after 2-3 seconds
+      // set loser
+      setIsWinner("You Lose!")
+    } else if (status.right === 1) {
+      // show pokemon
+      setShouldBeVisible(true);
+      // set gameOver to be true
+      setGameOver(true)
+      // set winner
+      setIsWinner("You Won!")
     }
   }, [status])
 

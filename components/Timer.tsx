@@ -11,9 +11,10 @@ interface Props {
   setIsCorrect: (update: isCorrectI) => void
   setShouldBeVisible: (isVisable: boolean) => void
   setStatus: (status: Status) => void
+  isWinner: string
 }
 
-const Timer = ({ gameOver, setPokemonArray, setGameOver, setIsCorrect, setShouldBeVisible, setStatus }: Props) => {
+const Timer = ({ gameOver, setPokemonArray, setGameOver, setIsCorrect, setShouldBeVisible, setStatus, isWinner }: Props) => {
 
   const [countDown, setCountDown] = useState(3);
 
@@ -59,7 +60,7 @@ const Timer = ({ gameOver, setPokemonArray, setGameOver, setIsCorrect, setShould
         <div className={styles['timer-box']}>
           <div className={styles['timer']}>
             <div className={styles['timer-text']}>
-              {`You Won! Next Pokemon in...${timeUntilNextGame()}`}
+              {`${isWinner} Next Pokemon in...${timeUntilNextGame()}`}
             </div>
           </div>
         </div>

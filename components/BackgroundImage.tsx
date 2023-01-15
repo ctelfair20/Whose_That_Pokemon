@@ -24,7 +24,13 @@ const BackgroundImage = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
 
   const [shouldBeVisible, setShouldBeVisible] = useState(false);
   const [gameOver, setGameOver] = useState(false);
-  const [status, setStatus] = useState<Status>({ wrong: 0, right: 0 })
+  const [isWinner, setIsWinner] = useState('');
+  const [status, setStatus] = useState<Status>(
+    {
+      wrong: 0,
+      right: 0
+    }
+  )
   const [isCorrect, setIsCorrect] = useState<isCorrectI>(
     {
       1: "not selected",
@@ -44,6 +50,7 @@ const BackgroundImage = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
         setGameOver={setGameOver}
         setShouldBeVisible={setShouldBeVisible}
         setStatus={setStatus}
+        isWinner={isWinner}
       />
       <Image
         className={styles.background}
@@ -66,6 +73,7 @@ const BackgroundImage = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
         setStatus={setStatus}
         gameOver={gameOver}
         setGameOver={setGameOver}
+        setIsWinner={setIsWinner}
       />
     </>
   );
