@@ -27,7 +27,7 @@ export default function Home() {
 
   useEffect(() => {
     fetchFourPokemon(setPokemonArr, gen);
-  }, []);
+  }, [gen]);
 
   return (
     <div>
