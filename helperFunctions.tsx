@@ -95,12 +95,12 @@ export const randomNumber = (gen: number) => {
   return num;
 }
 
-export const fetchFourPokemon = async (setPokemonArr: (pokemonArr: Pokemon[]) => void) => {
+export const fetchFourPokemon = async (setPokemonArr: (pokemonArr: Pokemon[]) => void, generation: string) => {
   const pokemonArray: Pokemon[] = [];
 
   // Call an external API endpoint to get a pokemon.
   for (let i = 0; i < 4; i++) {
-    const pokemon = await axios.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${randomNumber(1)}`);
+    const pokemon = await axios.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${randomNumber(parseInt(generation))}`);
     pokemonArray.push(pokemon.data);
   }
   // set state with pokemonArray

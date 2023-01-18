@@ -10,6 +10,8 @@ import GenerationSelector from "./GenerationSelector";
 export interface BackgroundProps {
   pokemonArray: Pokemon[]
   setPokemonArr: (pokemonArray: Pokemon[]) => void
+  gen: string
+  setGen: (gen: string) => void
 };
 
 export type isCorrectI = {
@@ -21,7 +23,7 @@ export type Status = {
   right: number
 };
 
-const BackgroundImage = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
+const BackgroundImage = ({ pokemonArray, setPokemonArr, gen, setGen }: BackgroundProps) => {
 
   const [shouldBeVisible, setShouldBeVisible] = useState(false);
   const [gameOver, setGameOver] = useState(false);
@@ -44,7 +46,7 @@ const BackgroundImage = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
   return (
     // to decrease pixelation in remote images, increase the height and width properties
     <>
-      <GenerationSelector />
+      <GenerationSelector gen={gen} setGen={setGen} />
       <Timer
         gameOver={gameOver}
         setPokemonArray={setPokemonArr}

@@ -23,9 +23,10 @@ export type Sprite = {
 
 export default function Home() {
   const [pokemonArr, setPokemonArr] = useState<Pokemon[]>([]);
+  const [gen, setGen] = useState('1');
 
   useEffect(() => {
-    fetchFourPokemon(setPokemonArr);
+    fetchFourPokemon(setPokemonArr, gen);
   }, []);
 
   return (
@@ -36,7 +37,7 @@ export default function Home() {
       <main>
         {/* Blocker to prevent component from loading before pokemon data was fetched */}
         {pokemonArr.length > 0 &&
-          <BackgroundImage pokemonArray={pokemonArr} setPokemonArr={setPokemonArr} />
+          <BackgroundImage pokemonArray={pokemonArr} setPokemonArr={setPokemonArr} gen={gen} setGen={setGen} />
         }
       </main>
     </div>
