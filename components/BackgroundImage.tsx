@@ -55,6 +55,7 @@ const BackgroundImage = ({ pokemonArray, setPokemonArr, gen, setGen }: Backgroun
         setShouldBeVisible={setShouldBeVisible}
         setStatus={setStatus}
         isWinner={isWinner}
+        gen={gen}
       />
       <Image
         className={styles.background}

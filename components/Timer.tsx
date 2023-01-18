@@ -12,9 +12,10 @@ interface Props {
   setShouldBeVisible: (isVisable: boolean) => void
   setStatus: (status: Status) => void
   isWinner: string
+  gen: string
 }
 
-const Timer = ({ gameOver, setPokemonArray, setGameOver, setIsCorrect, setShouldBeVisible, setStatus, isWinner }: Props) => {
+const Timer = ({ gameOver, setPokemonArray, setGameOver, setIsCorrect, setShouldBeVisible, setStatus, isWinner, gen }: Props) => {
 
   const [countDown, setCountDown] = useState(3);
 
@@ -26,7 +27,7 @@ const Timer = ({ gameOver, setPokemonArray, setGameOver, setIsCorrect, setShould
 
   const newGame = () => {
     //fetch new set of pokemom
-    fetchFourPokemon(setPokemonArray);
+    fetchFourPokemon(setPokemonArray, gen);
     // reset gameOver
     setGameOver(false);
     // reset isCorrect
