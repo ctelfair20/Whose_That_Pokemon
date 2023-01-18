@@ -5,6 +5,7 @@ import { Pokemon } from "../pages/index";
 import ChoiceBox from "./ChoiceBox";
 import styles from "../styles/Background.module.css";
 import Timer from "./Timer";
+import GenerationSelector from "./GenerationSelector";
 
 export interface BackgroundProps {
   pokemonArray: Pokemon[]
@@ -43,6 +44,7 @@ const BackgroundImage = ({ pokemonArray, setPokemonArr }: BackgroundProps) => {
   return (
     // to decrease pixelation in remote images, increase the height and width properties
     <>
+      <GenerationSelector />
       <Timer
         gameOver={gameOver}
         setPokemonArray={setPokemonArr}
